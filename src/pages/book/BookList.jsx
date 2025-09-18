@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Navbar from "../../components/navbar/Navbar";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -29,7 +28,7 @@ const BookList = () => {
 
   return (
     <>
-      <Navbar />
+      
       <div className="container mx-auto px-4 py-6">
         {/* Heading */}
         <h2 className="text-2xl font-bold mb-6">

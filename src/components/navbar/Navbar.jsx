@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -23,7 +24,7 @@ export default function Navbar() {
       <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          <img src="/assets/library-DUf9_y1s.png" className="h-16" alt="Logo" />
+          {/* <img src={libraryLogo} className="h-16" alt="Logo" /> */}
           <span className="text-2xl font-semibold dark:text-white">पुस्तकालय</span>
         </Link>
 
