@@ -8,7 +8,7 @@ const Books = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/jokes")
+      .get("https://book-stroe-server.onrender.com/jokes")
       .then((response) => {
         setBooks(response.data);
       })
