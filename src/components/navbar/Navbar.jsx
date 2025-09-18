@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaSun, FaMoon } from 'react-icons/fa';
+import Logo from "/src/assets/library.png"
 
 
 export default function Navbar() {
@@ -24,7 +25,7 @@ export default function Navbar() {
       <div className="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3">
-          {/* <img src={libraryLogo} className="h-16" alt="Logo" /> */}
+          <img src={Logo} className="h-16" alt="Logo" />
           <span className="text-2xl font-semibold dark:text-white">पुस्तकालय</span>
         </Link>
 
