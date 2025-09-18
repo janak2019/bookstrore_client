@@ -1,9 +1,9 @@
 import React from 'react'
 
-const SingleBook = () => {
+const SingleBookPage = () => {
   return (
     <div>SingleBook</div>
   )
 }
 
-export default SingleBook
+export default SingleBookPage
