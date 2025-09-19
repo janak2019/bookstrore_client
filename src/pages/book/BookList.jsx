@@ -7,7 +7,7 @@ const BookList = ({ apiBase }) => {
 
   useEffect(() => {
     axios
-      .get(`${apiBase}/api/books`)
+      .get(`${apiBase}/books`)
       .then((response) => {
         if (Array.isArray(response.data)) {
           setBooks(response.data);
