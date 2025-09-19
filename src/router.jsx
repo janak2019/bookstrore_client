@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path :"books",      // Default route ("/")
+        path :"book",      // Default route ("/")
         element: <BookList apiBase={apiBase}/>,
       },
       {
