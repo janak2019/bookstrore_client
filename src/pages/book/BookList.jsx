@@ -7,7 +7,7 @@ const BookList = () => {
 
   useEffect(() => {
     axios
-      .get("https://book-stroe-server.onrender.com/api/v1/book")
+      .get("https://book-stroe-server.onrender.com/book")
       .then((response) => {
         setBooks(response.data);
       })
