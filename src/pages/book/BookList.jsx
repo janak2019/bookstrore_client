@@ -7,7 +7,7 @@ const BookList = () => {
 
   useEffect(() => {
     axios
-      .get("https://book-stroe-server.onrender.com/jokes")
+      .get("https://book-stroe-server.onrender.com/api/v1/book")
       .then((response) => {
         setBooks(response.data);
       })
@@ -29,7 +29,7 @@ const BookList = () => {
   return (
     <>
       
-      <div className="container mx-auto px-4 py-6">
+      <div className="container mx-auto px-4 py-6 ">
         {/* Heading */}
         <h2 className="text-2xl font-bold mb-6">
           📚 Total Books: {filteredBooks.length}
