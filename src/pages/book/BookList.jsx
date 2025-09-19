@@ -7,7 +7,7 @@ const BookList = (apiBase) => {
 
   useEffect(() => {
     axios
-      .get("apiBase/api/books")
+      .get("https://bookstore-backend-hm71.onrender.com/api/books")
       .then((response) => {
         setBooks(response.data);
       })
