@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const BookList = () => {
+const BookList = (apiBase) => {
   const [books, setBooks] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     axios
-      .get("https://book-stroe-server.onrender.com/api/book")
+      .get("apiBase/api/books")
       .then((response) => {
         setBooks(response.data);
       })
