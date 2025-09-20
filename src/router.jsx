@@ -6,8 +6,10 @@ import BookList from "./pages/book/BookList";
 import AddBook from "./pages/book/AddBook";
 import EditBook from "./pages/book/EditBook";
 import SingleBookPage from "./pages/book/SingleBookPage";
-import Layout from "./Layout";
+import Layout from "./layouts/Layout";
 import Contact from "./pages/contact/contact";
+import Login from "./pages/auth/Login";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 const apiBase = "http://localhost:5000"
 
@@ -41,10 +43,19 @@ const router = createBrowserRouter([
         path:"contact",      // Default route ("/")
         element: <Contact apiBase={apiBase}/>,
       },
+      {
+        path:"admin",      // Default route ("/")
+        element: <Login apiBase={apiBase}/>,
+      },
+      
       
      
     ],
   },
+  {
+        path:"/admin/dashboard",
+        element:<AdminDashboard/>
+      }
 ]);
 
 export default router;
