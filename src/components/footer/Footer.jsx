@@ -19,7 +19,7 @@ const Footer = () => {
           <ul className="space-y-2">
             <li><a href="/" className="hover:text-blue-500">गृहपृष्ठ</a></li>
             <li><a href="/book-list" className="hover:text-blue-500">किताबहरु</a></li>
-            <li><a href="#" className="hover:text-blue-500">सम्पर्क</a></li>
+            <li><a href="/contact" className="hover:text-blue-500">सम्पर्क</a></li>
           </ul>
         </div>
 

@@ -98,7 +98,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link
-                to="/book"
+                to="/book-list"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500"
               >
                 किताब सूची
@@ -107,7 +107,7 @@ export default function Navbar() {
             
             <li>
               <a
-                href="#"
+                href="/contact"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500"
               >
                 सम्पर्क

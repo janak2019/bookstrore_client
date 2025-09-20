@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = ({apibase}) => {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white pt-20">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white pt-20 mt-6">
       {/* Hero Section */}
       <section className="text-center px-6 py-20 md:py-28 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">हाम्रो पुस्तकालयमा तपाईलाई स्वागत छ । 📚</h1>

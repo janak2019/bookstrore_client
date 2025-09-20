@@ -7,7 +7,7 @@ const BookList = ({ apiBase }) => {
 
   useEffect(() => {
     axios
-      .get(`${apiBase}/books`)
+      .get(`${apiBase}/api/v1/books`)
       .then((response) => {
         if (Array.isArray(response.data)) {
           setBooks(response.data);
@@ -34,7 +34,7 @@ const BookList = ({ apiBase }) => {
     : [];
 
   return (
-    <div className="container mx-auto px-4 py-6">
+    <div className="container mx-auto px-4 py-6 mt-28">
       {/* Heading */}
       <h2 className="text-2xl font-bold mb-6">
         📚 Total Books: {filteredBooks.length}

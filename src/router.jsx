@@ -7,8 +7,9 @@ import AddBook from "./pages/book/AddBook";
 import EditBook from "./pages/book/EditBook";
 import SingleBookPage from "./pages/book/SingleBookPage";
 import Layout from "./Layout";
+import Contact from "./pages/contact/contact";
 
-const apiBase = "https://bookstore-backend-hm71.onrender.com"
+const apiBase = "http://localhost:5000"
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path :"book",      // Default route ("/")
+        path :"book-list",      // Default route ("/")
         element: <BookList apiBase={apiBase}/>,
       },
       {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
       {
         path:"books/:id",      // Default route ("/")
         element: <SingleBookPage apiBase={apiBase}/>,
+      },
+      
+      {
+        path:"contact",      // Default route ("/")
+        element: <Contact apiBase={apiBase}/>,
       },
       
      
