@@ -7,7 +7,7 @@ import AddBook from "./pages/book/AddBook";
 import EditBook from "./pages/book/EditBook";
 import SingleBookPage from "./pages/book/SingleBookPage";
 import Layout from "./layouts/Layout";
-import Contact from "./pages/contact/contact";
+import Contact from "./pages/contact/Contact"
 import Login from "./pages/auth/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
