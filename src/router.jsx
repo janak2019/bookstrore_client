@@ -11,7 +11,7 @@ import Contact from "./pages/contact/Contact"
 import Login from "./pages/auth/Login";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
-const apiBase = "http://localhost:5000"
+const apiBase = "https://book-stroe-server.onrender.com"
 
 const router = createBrowserRouter([
   {

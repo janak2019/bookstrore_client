@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 px-4">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 px-4 mt-12">
       <div className="w-full max-w-lg bg-white shadow-lg rounded-2xl p-8">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
           Contact Us
