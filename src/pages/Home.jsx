@@ -39,7 +39,7 @@ const Home = ({apibase}) => {
             तपाईसँग भएको पुस्तकहरु साझेदारी गर्नसक्नुहुनेछ ।
           </p>
           <Link
-            to="/add-book"
+            to="/login"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium"
           >
             किताब थप्नुहोस 
