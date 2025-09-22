@@ -47,7 +47,7 @@ const bookSlice = createSlice({
 
 export const fetchAllBooks = ()=>async(dispatch)=>{
     dispatch(bookSlice.actions.fetchBooksRequest())
-    await axios.get("https://book-store-server-3n9u.onrender.com/api/v1/book/all",{withCredentials:true})
+    await axios.get("https://book-store-server-3n9u.onrender.com/api/v1/books/all",{withCredentials:true})
     .then(res=>{
         dispatch(bookSlice.actions.fetchBooksSuccess(res.data.books))
     })
@@ -57,7 +57,7 @@ export const fetchAllBooks = ()=>async(dispatch)=>{
 }
 export const addBook = (data) =>async(dispatch)=>{
     dispatch(bookSlice.actions.addBookRequest())
-    await axios.post("https://book-store-server-3n9u.onrender.com/api/v1/book/admin/add",data,{
+    await axios.post("https://book-store-server-3n9u.onrender.com/api/v1/books/admin/add",data,{
         withCredentials: true,
         headers:{
             "Content-Type":"application/json"
