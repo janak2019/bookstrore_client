@@ -41,7 +41,7 @@ export default function Login() {
 
 
   if (isAuthenticated) {
-    return <Navigate to={"/"} />
+    return <Navigate to={"/admin"} />
   }
 
   return (
