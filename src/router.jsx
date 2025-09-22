@@ -11,6 +11,7 @@ import Contact from "./pages/contact/Contact"
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import UserDashboard from "./pages/user/UserDashboard";
 
 const apiBase = "https://book-store-server-3n9u.onrender.com"
 
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
   {
         path:"/admin_dashboard",
         element:<AdminDashboard/>
+      },
+  {
+        path:"/user_dashboard",
+        element:<UserDashboard/>
       }
 ]);
 
