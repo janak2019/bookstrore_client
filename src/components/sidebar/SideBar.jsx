@@ -1,9 +1,13 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Home, Book, Users, Settings, LogOut } from "lucide-react";
+import { logout } from "../../store/slices/authSlice"; // adjust path if needed
 
 const Sidebar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const links = [
     { name: "Dashboard", path: "/admin/dashboard", icon: <Home size={20} /> },
@@ -11,6 +15,11 @@ const Sidebar = () => {
     { name: "Users", path: "/admin/users", icon: <Users size={20} /> },
     { name: "Settings", path: "/admin/settings", icon: <Settings size={20} /> },
   ];
+
+  const handleLogout = () => {
+    dispatch(logout()); // clear user state
+    navigate("/login"); // redirect to login page
+  };
 
   return (
     <div className="w-64 bg-white shadow-lg p-6 flex flex-col">
@@ -34,7 +43,10 @@ const Sidebar = () => {
       </nav>
 
       {/* Logout Button */}
-      <button className="mt-8 flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">
+      <button
+        onClick={handleLogout}
+        className="mt-8 flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+      >
         <LogOut size={20} />
         Logout
       </button>
