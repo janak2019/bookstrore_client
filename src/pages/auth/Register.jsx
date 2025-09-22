@@ -36,7 +36,7 @@ const Register = () => {
   }, [dispatch, isAuthenticated, error])
 
   if (isAuthenticated) {
-    return <Navigate to={"/"} />
+    return <Navigate to={"/admin_dashboard"} />
   }
 
 
