@@ -12,7 +12,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
-const apiBase = "https://book-stroe-server.onrender.com"
+const apiBase = "https://book-store-server-3n9u.onrender.com"
 
 const router = createBrowserRouter([
   {
