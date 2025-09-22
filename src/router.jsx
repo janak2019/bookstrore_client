@@ -9,6 +9,7 @@ import SingleBookPage from "./pages/book/SingleBookPage";
 import Layout from "./layouts/Layout";
 import Contact from "./pages/contact/Contact"
 import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 
 const apiBase = "https://book-stroe-server.onrender.com"
@@ -44,10 +45,13 @@ const router = createBrowserRouter([
         element: <Contact apiBase={apiBase}/>,
       },
       {
-        path:"admin",      // Default route ("/")
+        path:"login",      // Default route ("/")
         element: <Login apiBase={apiBase}/>,
       },
-      
+      {
+        path:"register",      // Default route ("/")
+        element: <Register apiBase={apiBase}/>,
+      },
       
      
     ],
