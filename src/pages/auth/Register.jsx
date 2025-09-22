@@ -1,114 +1,140 @@
-import { useState } from "react";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import logo from '../../assets/logo.png'
+import { register, resetAuthSlice } from '../../store/slices/authSlice'
 
 const Register = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const dispatch = useDispatch()
+  const { loading, error, message, user, isAuthenticated, } = useSelector((state) => state.auth)
+  const navigateTo = useNavigate()
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
+  const handleRegister = (e) => {
+    e.preventDefault()
+    const data = new FormData()
+    data.append("name", name)
+    data.append("email", email)
+    data.append("password", password)
+    dispatch(register(data))
+  }
+  useEffect(() => {
+    if (message) {
+      
+      navigateTo(`/otp-verification/${email}`)
+      dispatch(resetAuthSlice)
     }
-    console.log("Form Submitted", formData);
-    // send data to backend here
-  };
+    if (error) {
+      toast.error(error)
+      dispatch(resetAuthSlice())
+
+    }
+  }, [dispatch, isAuthenticated, error])
+
+  if (isAuthenticated) {
+    return <Navigate to={"/"} />
+  }
+
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 mt-12">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-2xl p-8 w-full max-w-md"
-      >
-        <h2 className="text-2xl font-bold text-center mb-6">Create Account</h2>
-
-        {/* Username */}
-        <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">
-            Username
-          </label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-            required
-          />
+    <>
+      <div className="flex flex-col justify-center md:flex-row h-screen">
+        {/* LEFT SIDE */}
+        <div className="hidden md:flex w-full md:w-1/2 bg-black text-white flex-col items-center justify-center p-10 rounded-tr-[80px] rounded-br-[80px]">
+          <div className="text-center max-w-md">
+            <img src={logo} alt="logo" className="mx-auto mb-12 h-24 w-auto" />
+            <p className="text-gray-300 mb-8 text-lg">
+              Already have an account? Sign in now.
+            </p>
+            <Link
+              to="/login"
+              className="inline-block border-2 border-white rounded-lg font-semibold py-2 px-8 hover:bg-white hover:text-black transition"
+            >
+              SIGN IN
+            </Link>
+          </div>
         </div>
 
-        {/* Email */}
-        <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-            required
-          />
+        {/* RIGHT SIDE */}
+        <div className="w-full md:w-1/2 flex items-center justify-center bg-white p-8">
+          <div className="w-full max-w-sm">
+            {/* Heading + Logo */}
+            <div className="flex flex-col-reverse sm:flex-row items-center justify-center gap-4 mb-6">
+              <h3 className="font-bold text-3xl text-gray-900">Sign Up</h3>
+              <img src={logo} alt="logo" className="h-auto w-32 object-contain" />
+            </div>
+
+            <p className="text-gray-600 text-center mb-8">
+              Please provide your information to create an account.
+            </p>
+
+            {/* Form */}
+            <form onSubmit={handleRegister} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="sr-only">Full Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Full name"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:outline-none"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="sr-only">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:outline-none"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="password" className="sr-only">Password</label>
+                <input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:outline-none"
+                  required
+                />
+              </div>
+
+              {/* Mobile Sign in link */}
+              <div className="block md:hidden text-center mt-4">
+                <p className="text-sm">Already have an account?</p>
+                <Link to="/login" className="text-sm text-gray-600 hover:underline">
+                  Sign In
+                </Link>
+              </div>
+
+              {/* Button */}
+              <button
+                type="submit"
+                className="w-full border-2 border-black bg-black text-white font-semibold py-3 rounded-lg hover:bg-white hover:text-black transition"
+              >
+                SIGN UP
+              </button>
+            </form>
+          </div>
         </div>
+      </div>
+    </>
 
-        {/* Password */}
-        <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-            required
-          />
-        </div>
+  )
 
-        {/* Confirm Password */}
-        <div className="mb-6">
-          <label className="block text-gray-700 font-medium mb-2">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-            required
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200"
-        >
-          Register
-        </button>
-
-        <p className="text-center text-gray-600 mt-4">
-          Already have an account?{" "}
-          <a href="/login" className="text-blue-600 hover:underline">
-            Login
-          </a>
-        </p>
-      </form>
-    </div>
-  );
-};
-
-export default Register;
+}
+export default Register
